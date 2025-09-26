@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Avatar from "./Avatar";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 function Header() {
   return (
@@ -11,6 +12,14 @@ function Header() {
           <h2 className="text-sm">Your Customizable AI Chat Agent</h2>
         </div>
       </Link>
+      <div className="flex items-center ">
+        <SignedIn>
+          <UserButton showName />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+      </div>
     </header>
   );
 }
