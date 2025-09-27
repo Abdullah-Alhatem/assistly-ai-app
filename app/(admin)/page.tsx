@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function Home() {
   // 00:55:50
