@@ -19,10 +19,9 @@ function CreateChatbot() {
             className="max-w-lg"
             required
           />
-          <Button>
-            Create Chatbot
-          </Button>
+          <Button>Create Chatbot</Button>
         </form>
+        <p className="text-gray-300 mt-5">Example: Customer Support Chatbot</p>
       </div>
     </div>
   );
