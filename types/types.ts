@@ -54,3 +54,28 @@ export interface InsertChatbotResponse {
   };
 }
 
+export interface GetChatbotsByUserData {
+  chatbotsList: Chatbot[];
+}
+
+export interface GetChatbotsByUserDataVariables {
+  clerk_user_id: string;
+}
+
+export interface GetUserChatbotsVariables {
+  userId: string;
+}
+
+export interface GetChatSessionMessagesResponse {
+  chat_sessions: {
+    id: number;
+    created_at: string;
+    messages: Message[];
+    chatbots: { name: string };
+    guests: { name: string; email: string };
+  };
+}
+
+export interface GetChatSessionMessagesVariables {
+  id: number;
+}
