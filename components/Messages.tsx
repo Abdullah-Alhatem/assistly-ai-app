@@ -26,7 +26,7 @@ function Messages({
   }, [messages]);
 
   return (
-    <div className="flex flex-1 flex-col overflow-y-auto space-y-10 py-10 px-5 bg-white rounded-lg">
+    <div className="flex flex-1 flex-col overflow-y-auto space-y-10 py-10 min-[500px]:px-6 px-3 bg-white rounded-lg">
       {messages.map(message => {
         const isSender = message.sender !== "user";
         return (
@@ -89,14 +89,6 @@ function Messages({
                   ),
                   th: ({ node, ...props }) => (
                     <th {...props} className="text-left underline" />
-                  ),
-                  p: ({ node, ...props }) => (
-                    <p
-                      {...props}
-                      className={`whitespace-break-spaces mb-5 ${
-                        message.content === "Thinking..." && "animate-pulse"
-                      } ${isSender ? "text-white" : "text-gray-700"}`}
-                    />
                   ),
                   a: ({ node, ...props }) => (
                     <a

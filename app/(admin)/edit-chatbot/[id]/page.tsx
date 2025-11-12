@@ -17,9 +17,11 @@ import {
   DELETE_CHATBOT,
   UPDATE_CHATBOT,
 } from "@/graphql/mutations/mutations";
-import { redirect } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 
-function EditChatbot({ params: { id } }: { params: { id: string } }) {
+function EditChatbot() {
+    const params: { id: string } = useParams();
+  const id = params.id;
   const [url, setUrl] = useState<string>("");
   const [newCharacteristic, setNewCharacteristic] = useState<string>("");
   const [chatbotName, setChatbotName] = useState<string>("");
