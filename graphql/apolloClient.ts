@@ -5,13 +5,25 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
+// ✅ نبقي على BASE_URL للاستخدام في أماكن أخرى
 export const BASE_URL =
   process.env.NODE_ENV !== "development"
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
 
+// ✅ دالة جديدة للحصول على الـ URL الصحيح لـ Apollo Client فقط
+const getApolloUri = () => {
+  // في المتصفح: استخدم الدومين الحالي
+  if (typeof window !== "undefined") {
+    return `${window.location.origin}/api/graphql`;
+  }
+  
+  // في السيرفر: استخدم BASE_URL
+  return `${BASE_URL}/api/graphql`;
+};
+
 const httpLink = createHttpLink({
-  uri: `${BASE_URL}/api/graphql`, // Point to new API route
+  uri: getApolloUri(),
 });
 
 const defaultOptions: DefaultOptions = {
