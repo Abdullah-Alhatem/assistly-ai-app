@@ -42,8 +42,8 @@ async function ReviewSession({ params: { id } }: { params: { id: string } }) {
       </h2>
       <hr className="my-10" />
       <Messages
-        messages={data?.chat_sessions?.messages}
-        chatbotName={data?.chat_sessions?.chatbots?.name}
+        messages={data?.chat_sessions?.messages!}
+        chatbotName={data?.chat_sessions?.chatbots?.name!}
       />
     </div>
   );

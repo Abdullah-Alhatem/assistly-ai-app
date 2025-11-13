@@ -3,6 +3,7 @@ import OpenAI from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { serverClient } from "@/lib/server/serverClient";
 import {
+  AiMessageResultType,
   GetChatbotByIdResponse2,
   MessagesByChatSessionIdResponse2,
   MessagesByChatSessionIdVariables,
@@ -98,7 +99,7 @@ export async function POST(req: NextRequest) {
     });
 
     // 5. Save the AI's response in the database
-    const aiMessageResult = await serverClient.mutate({
+    const aiMessageResult = await serverClient.mutate<AiMessageResultType>({
       mutation: INSERT_MESSAGE,
       variables: {
         chat_session_id,

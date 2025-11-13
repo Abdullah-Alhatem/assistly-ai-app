@@ -25,6 +25,7 @@ async function ViewChatbots() {
   });
 
   const userChatbots = (data?.chatbotsList || []).filter(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (chatbot: any) => chatbot.clerk_user_id === userId
   );
   console.log("UserData@@@@@@@@@@@", userChatbots); // Array of Filtered chatbots for the authenticated user

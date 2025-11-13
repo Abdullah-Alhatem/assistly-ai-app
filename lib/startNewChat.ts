@@ -4,6 +4,7 @@ import {
   INSERT_GUEST,
   INSERT_MESSAGE,
 } from "@/graphql/mutations/mutations";
+import { ChatSessionResultType, GuestResultType } from "@/types/types";
 import { gql } from "@apollo/client";
 
 async function startNewChat(
@@ -13,7 +14,7 @@ async function startNewChat(
 ) {
   try {
     // 1. Crate a new guest entry
-    const guestResult = await client.mutate({
+    const guestResult = await client.mutate<GuestResultType>({
       mutation: INSERT_GUEST,
       variables: {
         name: guestName,
@@ -24,7 +25,7 @@ async function startNewChat(
     const guestId = guestResult.data?.data?.insertGuests?.id;
 
     // Initialize a new chat session
-    const chatSessionResult = await client.mutate({
+    const chatSessionResult = await client.mutate<ChatSessionResultType>({
       mutation: INSERT_CHAT_SESSION,
       variables: {
         chatbot_id: chatbotId,

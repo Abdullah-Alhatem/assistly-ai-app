@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Chatbot {
   id: number;
   clerk_user_id: string;
@@ -92,4 +93,21 @@ export interface MessagesByChatSessionIdResponse2 {
 
 export interface MessagesByChatSessionIdVariables {
   chat_session_id: number;
+}
+export interface AiMessageResultType {
+  insertMessages: {
+    id: number;
+  };
+}
+
+export interface GuestResultType {
+  data: {
+    insertGuests: { id: any };
+  };
+}
+
+export interface ChatSessionResultType {
+  data: {
+    insertChat_sessions: { id: any };
+  };
 }
