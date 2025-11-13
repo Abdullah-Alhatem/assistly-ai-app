@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import Messages from "@/components/Messages";
 import { GET_CHAT_SESSION_MESSAGES } from "@/graphql/queries/queries";
 import { serverClient } from "@/lib/server/serverClient";
@@ -30,7 +31,7 @@ async function ReviewSession({ params: { id } }: { params: { id: string } }) {
     <div className="flex-1 p-10 pb-24 ">
       <h1 className="text-xl lg:text-3xl font-semibold">Session Review</h1>
       <p className="font-light text-xs text-gray-400 mt-2">
-        Started at {new Date(data?.chat_sessions?.created_at).toLocaleString()}
+        Started at {new Date(data?.chat_sessions?.created_at!).toLocaleString()}
       </p>
       <h2 className="font-light mt-2">
         Between {data?.chat_sessions?.chatbots?.name} &{" "}
