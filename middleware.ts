@@ -5,6 +5,7 @@ const isPublicRoute = createRouteMatcher([
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/chatbot/(.*)',
+  '/api/send-message',
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
