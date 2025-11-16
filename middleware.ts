@@ -6,6 +6,7 @@ const isPublicRoute = createRouteMatcher([
   '/sign-up(.*)',
   '/chatbot/(.*)',
   '/api/send-message',
+  '/api/graphql',
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
